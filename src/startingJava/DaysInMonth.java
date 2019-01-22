@@ -9,18 +9,18 @@ package startingJava;
 public class DaysInMonth {
 
 	public static void main(String[] args) {
-		int m = 2;
-		int d = 0;
+		int month = 2;
+		int days = 0;
 		int years[] = {1900, 2000, 2012, 2014, 2016, 2100};
 		for (int i=0; i < years.length; i++)
 		{
-    		if(m == 2 && isLeapYear(years[i])){
-    		    d = 29;
+    		if(month == 2 && isLeapYear(years[i])){
+    		    days = 29;
 	    	}
 	    	else{
-	    	    d = daysInMonth(m);
+	    	    days = daysInMonth(month);
 	    	}
-	    	System.out.println("In "+ years[i] +", the month "+ m +" has "+ d +" days");
+	    	System.out.println("In " + years[i] + ", the month " + month + " has " + days + " days");
 		}
 	
 	}
@@ -33,27 +33,27 @@ public class DaysInMonth {
         else (it is a leap year)
      */
 	public static boolean isLeapYear(int year){
-	    boolean leap = false;
+	    boolean leapYear = false;
 	    if (year % 4 != 0){
-	        leap = false;
+	        leapYear = false;
 	    }
 	    else if (year % 100 != 0){
-	        leap = true;
+	        leapYear = true;
 	    }
 	    else if (year % 400 != 0){
-	        leap = false;
+	        leapYear = false;
 	    }
 	    else
-	        leap = true;
+	        leapYear = true;
 	        
-	   return leap;
+	   return leapYear;
 	}
 	
-	public static int daysInMonth(int m){
+	public static int daysInMonth(int month){
 	    int days;
-		if(m == 4 || m == 9 || m == 6 || m == 9 || m == 11){
+		if(month == 4 || month == 9 || month == 6 || month == 9 || month == 11){
 		    days = 30;
-		}else if(m == 2){
+		}else if(month == 2){
 		    days = 28;
 		}else{
 		    days = 31;
