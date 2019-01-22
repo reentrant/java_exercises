@@ -1,3 +1,4 @@
+package startingJava;
 /**
  * Do not change the first two 
  * lines of this program. They
@@ -5,7 +6,7 @@
  * class and the main method. 
  */
  
-public class Main {
+public class DaysInMonth {
 
 	public static void main(String[] args) {
 		int m = 2;
