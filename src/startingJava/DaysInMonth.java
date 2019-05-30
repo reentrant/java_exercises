@@ -1,9 +1,6 @@
 package startingJava;
 /**
- * Do not change the first two 
- * lines of this program. They
- * are used to declare the Main
- * class and the main method. 
+ * Exercise Loops and Conditionals
  */
  
 public class DaysInMonth {
