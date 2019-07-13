@@ -1,4 +1,4 @@
-package startingOOP;
+package terrestrialLife;
 
 public class Jaguar extends Animal{
 

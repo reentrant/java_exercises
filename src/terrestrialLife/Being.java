@@ -1,4 +1,4 @@
-package startingOOP;
+package terrestrialLife;
 
 public interface Being {
 
