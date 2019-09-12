@@ -107,6 +107,7 @@ public class usingArrayLists {
 	     */
 	    private static void removeDuplicates(List<Integer> mine){
 	    	int [] indexes = new int [5];
+
 	    	Iterator <Integer> iterator = mine.iterator();
 	    	while (iterator.hasNext()) {
 
