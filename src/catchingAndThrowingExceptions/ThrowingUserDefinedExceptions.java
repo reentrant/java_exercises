@@ -1,4 +1,4 @@
-package startingOOP;
+package catchingAndThrowingExceptions;
 
 public class ThrowingUserDefinedExceptions {
 	public static void main(String args[]) {
@@ -13,6 +13,9 @@ public class ThrowingUserDefinedExceptions {
 }//class
 
 class CustomException extends Exception{
+	/**
+	 * 
+	 */
 	int a;
 	   CustomException(int a) {
 	     this.a = a;

@@ -1,4 +1,4 @@
-package startingOOP;
+package catchingAndThrowingExceptions;
 
 public class ThrowingIllegalArgumentException {
 	

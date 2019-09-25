@@ -9,7 +9,7 @@ public class Exceptions {
 			int fraction = n / d;
 			System.out.println(fraction);
 		} catch (Exception e) {
-			System.out.println("In the catch Block due to Exception = " + e);
+			System.out.println("Generic Exception: " + e);
 			System.out.println(e.getStackTrace());
 		} finally {
 			System.out.println("Inside the finally block");
