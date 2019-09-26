@@ -9,7 +9,7 @@ package startingJava;
  * Topic: Types, names, Strings
  *
  */
-public class Concatenation {
+public class ConcatenatingInts {
 
 	/**
 	 * @param args

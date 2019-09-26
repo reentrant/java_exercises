@@ -14,7 +14,7 @@ public class ThrowingUserDefinedExceptions {
 
 class CustomException extends Exception{
 	/**
-	 * 
+	 *
 	 */
 	int a;
 	   CustomException(int a) {

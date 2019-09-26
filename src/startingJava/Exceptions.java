@@ -7,7 +7,7 @@ public class Exceptions {
 		int n = 20;
 		try {
 			int fraction = n / d;
-			System.out.println(fraction);
+			System.out.println("Line not executed: " + fraction);
 		} catch (Exception e) {
 			System.out.println("Generic Exception: " + e);
 			System.out.println(e.getStackTrace());

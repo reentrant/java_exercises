@@ -1,14 +1,14 @@
-package startingJava;
+package startingOOP;
 /**
- * Exercise Loops and Conditionals
+ * Calculate if a given year is Leap
  */
  
-public class DaysInMonth {
+public class StaticMethodsExample {
 
 	public static void main(String[] args) {
 		int month = 2;
 		int days = 0;
-		int years[] = {1900, 2000, 2012, 2014, 2016, 2100};
+		int years[] = {1900, 2000, 2012, 2014, 2016, 2100, 2019, 2020};
 		for (int i=0; i < years.length; i++)
 		{
     		if(month == 2 && isLeapYear(years[i])){
