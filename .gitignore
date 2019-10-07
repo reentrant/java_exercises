@@ -1,6 +1,9 @@
-/.settings/
-/.metadata
-/bin/
-
+# Ignore Gradle project-specific cache directory
+.gradle
+.settings
+.metadata
+bin/
 .classpath
 .project
+# Ignore Gradle build output directory
+build
