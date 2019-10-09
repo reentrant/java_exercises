@@ -6,7 +6,7 @@ import java.util.Scanner;
 class Day22BstHeight {
 	public Day22BstHeight() {}
 	
-	public static int getHeight(Node root){
+	public static int getHeight(BSTreeNode root){
 		/**
 		 * Any node has a height of 1, and the height of an empty subtree is -1.
 		 * The Height of a tree is:
@@ -27,9 +27,9 @@ class Day22BstHeight {
 		return bigger;
 	}
 
-	public static Node insert(Node root, int data){
+	public static BSTreeNode insert(BSTreeNode root, int data){
         if(root==null){
-            return new Node(data);
+            return new BSTreeNode(data);
         }
         else{
             if(data<=root.data){
@@ -44,7 +44,7 @@ class Day22BstHeight {
 	 public static void main(String args[]){
         Scanner input=new Scanner(System.in);
         int T=input.nextInt();
-        Node root=null;
+        BSTreeNode root=null;
         while(T-->0){
             int data=input.nextInt();
             root=insert(root,data);

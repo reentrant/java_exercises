@@ -40,9 +40,6 @@ public class ConcatenatingStrings {
 //		str_Sample[0] = 'P';
 		
 		System.out.println("Testing inmutability: " + str_Sample.getClass());
-		//declare the String as an object S1 S2
-        String S1 = "Hello Java String Method";
-        String S2 = "RockStar";
 
         str_Sample = "This is Index of Example";
         //Character at position

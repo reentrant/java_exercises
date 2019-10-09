@@ -17,7 +17,7 @@ inOrder(t) {
     } 
 } 
 	 */
-	static void inOrder(Node root){
+	static void inOrder(BSTreeNode root){
 		if (root != null){
 			inOrder(root.left);
 			System.out.print(root.data + " ");
@@ -34,7 +34,7 @@ postOrder(t) {
     } 
 } 
 	 */
-	static void postOrder(Node root){
+	static void postOrder(BSTreeNode root){
 		if (root != null){
 			postOrder(root.left);
 			postOrder(root.right);
@@ -54,7 +54,7 @@ preOrder(t) {
     } 
 } 
 	 */
-	static void preOrder(Node root){
+	static void preOrder(BSTreeNode root){
 		if (root != null){
 			System.out.print(root.data + " ");
 			preOrder(root.left);
@@ -88,12 +88,12 @@ levelOrder(BinaryTree t) {
     } 
 } 
 	 */
-	static void levelOrder(Node root){
-		Queue<Node> queue = new LinkedList<Node>();
+	static void levelOrder(BSTreeNode root){
+		Queue<BSTreeNode> queue = new LinkedList<BSTreeNode>();
 		if (root != null){
 			queue.add(root);
 			while (!queue.isEmpty()){
-				Node tempTree = queue.remove();
+				BSTreeNode tempTree = queue.remove();
 				System.out.print(tempTree.data + " ");
 				if (tempTree.left != null){
 					queue.add(tempTree.left);
@@ -104,12 +104,12 @@ levelOrder(BinaryTree t) {
 			}
 		}
     }
-	public static Node insert(Node root,int data){
+	public static BSTreeNode insert(BSTreeNode root,int data){
 	        if(root==null){
-	            return new Node(data);
+	            return new BSTreeNode(data);
 	        }
 	        else{
-	            Node cur;
+	            BSTreeNode cur;
 	            if(data<=root.data){
 	                cur=insert(root.left,data);
 	                root.left=cur;
@@ -124,7 +124,7 @@ levelOrder(BinaryTree t) {
 	    public static void main(String args[]){
 	            Scanner scanner = new Scanner(System.in);
 	            int T = scanner.nextInt();
-	            Node root = null;
+	            BSTreeNode root = null;
 	            while(T-- > 0){
 	                int data=scanner.nextInt();
 	                root = insert(root,data);

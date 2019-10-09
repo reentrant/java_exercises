@@ -1,10 +1,10 @@
 package algorithms;
 
 class Node{
-    Node left,right;
-    int data;
-    Node(int data){
-        this.data=data;
-        left=right=null;
+	int data;
+	Node next;
+	Node(int d){
+        data=d;
+        next=null;
     }
 }
