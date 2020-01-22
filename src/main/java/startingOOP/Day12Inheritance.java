@@ -1,14 +1,41 @@
 package startingOOP;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
-class Person {
+
+class Day12Inheritance {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String firstName = scan.next();
+		String lastName = scan.next();
+		int id = scan.nextInt();
+		int numScores = scan.nextInt();
+		int[] testScores = new int[numScores];
+		for(int i = 0; i < numScores; i++){
+			testScores[i] = scan.nextInt();
+		}
+//		System.out.println(testScores);
+		scan.close();
+		
+		Student s = new Student(firstName, lastName, id, testScores);
+		s.printPerson();
+		System.out.println("Grade: " + s.calculate() );
+	}
+}
+
+class Human {
 	protected String firstName;
 	protected String lastName;
 	protected int idNumber;
 	
+	public Human() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	// Constructor
-	Person(String firstName, String lastName, int identification){
+	Human(String firstName, String lastName, int identification){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.idNumber = identification;
@@ -23,7 +50,7 @@ class Person {
 	 
 }
 
-class Student extends Person{
+class Student extends Human{
 	
 
 	private int[] testScores;
@@ -40,6 +67,7 @@ class Student extends Person{
 	Student(String firstName, String lastName, int id, int[] scores) {
 		super(firstName, lastName, id);
 		this.testScores = scores;
+		System.out.println("scores = " + Arrays.toString(scores));
 	}
     /*	
     *   Method Name: calculate
@@ -68,25 +96,5 @@ class Student extends Person{
 		}
 		
 		return grade;
-	}
-}
-
-class Day12Inheritance {
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		String firstName = scan.next();
-		String lastName = scan.next();
-		int id = scan.nextInt();
-		int numScores = scan.nextInt();
-		int[] testScores = new int[numScores];
-		for(int i = 0; i < numScores; i++){
-			testScores[i] = scan.nextInt();
-		}
-//		System.out.println(testScores);
-		scan.close();
-		
-		Student s = new Student(firstName, lastName, id, testScores);
-		s.printPerson();
-		System.out.println("Grade: " + s.calculate() );
 	}
 }

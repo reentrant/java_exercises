@@ -10,14 +10,14 @@ public class CalculatorLibrary {
 	 * 
 	 */
 	public CalculatorLibrary() {
-		System.out.print("Calling the Calculator constructor\t");
+		System.out.print("Calling the Calculator constructor\n");
 	}
 
 	/**
 	 * @param args
 	 */
-	public void add(){
-		System.out.println("Adding some numbers");
+	public int add(int a, int b){
+		return a + b;
 	}
 	
 	public void substract()
