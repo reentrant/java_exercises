@@ -16,7 +16,11 @@ import java.io.File;
  */
 public class MainContainer extends JFrame {
 
-    private MenuBar myMenuBar;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private MenuBar myMenuBar;
     private ToolPalette myBrushes;
     private DrawingPanel myCanvas;
     private ToolsSubPanel myOptionTools;

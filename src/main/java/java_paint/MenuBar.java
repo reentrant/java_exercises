@@ -14,6 +14,10 @@ import javax.swing.JOptionPane;
  *
  */
 public class MenuBar extends JMenuBar implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private MainContainer container;
     private JMenu menuFile;
     private JMenu menuEdit;

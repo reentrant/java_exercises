@@ -26,13 +26,16 @@ import java.util.ArrayList;
  */
 public class DrawingPanel extends JPanel implements MouseListener, MouseMotionListener {
 
-    private MainContainer window;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private MainContainer window;
     private Point initialPoint;
     private Point finalPoint;
     private GeneralPath polygonPath;
     private ArrayList<BrushStroke> drawings = new ArrayList<BrushStroke>();
     private boolean isPolygonFirstVertex;
-    private BufferedImage image;
 
     public DrawingPanel(MainContainer frameWindow) {
         this.isPolygonFirstVertex = true;

@@ -15,7 +15,11 @@ import java.awt.event.ActionListener;
  */
 public class ToolPalette extends JToolBar implements ActionListener {
 
-    private JToggleButton buttonPencil;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JToggleButton buttonPencil;
     private JToggleButton buttonLine;
     private JToggleButton buttonRectangle;
     private JToggleButton buttonEllipse;

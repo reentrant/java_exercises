@@ -15,7 +15,11 @@ import java.awt.event.ActionListener;
  */
 public class ToolsSubPanel extends JPanel implements ActionListener {
 
-    private JLabel thicknessLabel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel thicknessLabel;
     private JLabel colorLabel;
     private JLabel spaceLabel1;
     private JLabel spaceLabel2;
