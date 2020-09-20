@@ -42,7 +42,7 @@ public class Persona {
         }	
         if (tipo > 0 && tipo < 3)
         	this.genero = Genero.values()[tipo - 1];
-        sc.close();
+        //sc.close();
     }
 
 	private void setNombre(String nombre) {
@@ -71,10 +71,12 @@ public class Persona {
         sb.append("]");
         return sb.toString();
     }
+
 	
 	public static void main(String [] args) {
 		Persona p = new Persona();
-		System.out.println(p);		
+		System.out.println(p);
+		Persona q = new Persona();
+		System.out.println(q);
 	}
-
 }

@@ -5,6 +5,11 @@ public abstract class Instrumento {
 	private Persona musico;
 	private boolean sonando;
 	
+	public Instrumento() {
+		this.musico = new Persona();
+		this.sonando = false;
+	}
+	
 	public Instrumento(Persona musico) {
 		this.musico = musico;
 		this.sonando = false;
