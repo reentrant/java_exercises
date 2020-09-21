@@ -8,9 +8,13 @@ import java.util.Scanner;
 public class MainApplication {
 	public static Orquesta[] orquesta;
 
+	
+	public MainApplication() {
+	}
+
 	public static void main(String[] args) {
-		
 		crearOrquesta();
+		MainApplication app = new MainApplication();
 		Menu menu = new Menu();
 		int opcion;
 		do {
@@ -20,22 +24,22 @@ public class MainApplication {
 			case 0:
 				break;
 			case 1:
-				mostrarOrquesta();
+				app.mostrarOrquesta();
 				break;
 			case 2:
-				mostarOrquestaSonando();
+				app.mostarOrquestaSonando();
 				break;
 			case 3:
-				hacerSonar();
+				app.hacerSonar();
 				break;
 			case 4:
-				dejarDeSonar();
+				app.dejarDeSonar();
 				break;
 			case 5:
-				hacerCantar();
+				app.hacerCantar();
 				break;
 			case 6:
-				dejarDeCantar();
+				app.dejarDeCantar();
 				
 			default:
 				break;
@@ -69,9 +73,10 @@ public class MainApplication {
 		}
 	}
 
-	private static void mostrarOrquesta() {
+	void mostrarOrquesta() {
 		ArrayList<Cantante> cantantes = new ArrayList<>();
-        ArrayList<Instrumento> instrumentos = new ArrayList<>();
+		ArrayList<Instrumento> instrumentos = new ArrayList<>();
+
         for (Orquesta elemento: orquesta) {
         	if (elemento.getClass().equals(Solista.class) || elemento.getClass().equals(Coro.class)) {
         		cantantes.add((Cantante) elemento);
@@ -90,7 +95,7 @@ public class MainApplication {
         System.out.println();
 	}
 	
-	private static void mostarOrquestaSonando() {
+	void mostarOrquestaSonando() {
 		boolean sonando = false;
 		for (Orquesta elemento: orquesta) {
 			if (elemento.getClass().equals(Solista.class) || elemento.getClass().equals(Coro.class)) {
@@ -112,22 +117,123 @@ public class MainApplication {
 		System.out.println();
 	}
 
-	private static void hacerSonar() {
-		
+	void hacerSonar() {
+		ArrayList<Cantante> cantantes = new ArrayList<>();
+		ArrayList<Instrumento> instrumentos = new ArrayList<>();
+		ArrayList<Instrumento> instrumentosNoSonando = new ArrayList<>();
+
+        for (Orquesta elemento: orquesta) {
+        	if (elemento.getClass().equals(Solista.class) || elemento.getClass().equals(Coro.class)) {
+        		cantantes.add((Cantante) elemento);
+        	} else {
+        		instrumentos.add((Instrumento) elemento);
+        		if (((Instrumento) elemento).getSonando() == false) {
+        			instrumentosNoSonando.add((Instrumento) elemento);
+        		}
+        	}
+        }
+        
+        if (instrumentos.isEmpty()) {
+        	System.out.println("No hay instrumentos en la orquesta");
+        } else if (instrumentosNoSonando.isEmpty()) {
+        	System.out.println("Todos los instrumentos ya estan sonando");
+        } else if (instrumentosNoSonando.size() == 1) {
+        	instrumentosNoSonando.get(0).sonar();
+        } else if (instrumentosNoSonando.size() == 2) {
+        	for (Instrumento i : instrumentosNoSonando) {
+        		i.sonar();
+        	}
+        } else {
+        	// Ordena sonar a dos instrumentos.
+        	for (int i=0; i < 2; i++) {
+        		int index = (int) (instrumentosNoSonando.size() * Math.random());
+        		instrumentosNoSonando.get(index).sonar();
+        	}
+        }
+        System.out.println();
 	}
 
-	private static void dejarDeSonar() {
-		// TODO Auto-generated method stub
-		
+	void dejarDeSonar() {
+		ArrayList<Cantante> cantantes = new ArrayList<>();
+		ArrayList<Instrumento> instrumentos = new ArrayList<>();
+		ArrayList<Instrumento> instrumentosSonando = new ArrayList<>();
+
+        for (Orquesta elemento: orquesta) {
+        	if (elemento.getClass().equals(Solista.class) || elemento.getClass().equals(Coro.class)) {
+        		cantantes.add((Cantante) elemento);
+        	} else {
+        		instrumentos.add((Instrumento) elemento);
+        		if (((Instrumento) elemento).getSonando()) {
+        			instrumentosSonando.add((Instrumento) elemento);
+        		}
+        	}
+        }
+        
+        if (instrumentos.isEmpty()) {
+        	System.out.println("No hay instrumentos en la orquesta");
+        } else if (instrumentosSonando.isEmpty()) {
+        	System.out.println("Ningun instrumento esta sonando");
+        } else {
+        	int index = (int) (instrumentosSonando.size() * Math.random());
+        	instrumentosSonando.get(index).noSonar();
+        }
+        System.out.println();
 	}
 
-	private static void hacerCantar() {
-		// TODO Auto-generated method stub
-		
+	void hacerCantar() {
+		ArrayList<Cantante> cantantes = new ArrayList<>();
+		ArrayList<Cantante> cantantesNoCantando = new ArrayList<>();
+		ArrayList<Instrumento> instrumentos = new ArrayList<>();
+
+        for (Orquesta elemento: orquesta) {
+        	if (elemento.getClass().equals(Solista.class) || elemento.getClass().equals(Coro.class)) {
+        		cantantes.add((Cantante) elemento);
+        		if (((Cantante) elemento).getCantando() == false) {
+        			cantantesNoCantando.add((Cantante) elemento);
+        		}
+        	} else {
+        		instrumentos.add((Instrumento) elemento);
+        	}
+        }
+        
+        if (cantantes.isEmpty()) {
+        	System.out.println("No hay cantantes en la orquesta");
+        } else if (cantantesNoCantando.isEmpty()) {
+        	System.out.println("Todos los cantantes ya estan cantando");
+        } else {
+
+    		int index = (int) (cantantesNoCantando.size() * Math.random());
+    		cantantesNoCantando.get(index).sonar();
+        	
+        }
+        System.out.println();
 	}
 	
-	private static void dejarDeCantar() {
-		// TODO Auto-generated method stub
+	void dejarDeCantar() {
+		ArrayList<Cantante> cantantes = new ArrayList<>();
+		ArrayList<Cantante> cantantesCantando = new ArrayList<>();
+		ArrayList<Instrumento> instrumentos = new ArrayList<>();
+		
+		for (Orquesta elemento: orquesta) {
+        	if (elemento.getClass().equals(Solista.class) || elemento.getClass().equals(Coro.class)) {
+        		cantantes.add((Cantante) elemento);
+        		if (((Cantante) elemento).getCantando()) {
+        			cantantesCantando.add((Cantante) elemento);
+        		}
+        	} else {
+        		instrumentos.add((Instrumento) elemento);
+        	}
+        }
+        
+        if (cantantes.isEmpty()) {
+        	System.out.println("No hay cantantes en la orquesta");
+        } else if (cantantesCantando.isEmpty()) {
+        	System.out.println("Ningun cantante esta cantando");
+        } else {
+        	int index = (int) (cantantesCantando.size() * Math.random());
+        	cantantesCantando.get(index).noSonar();
+        }
+        System.out.println();
 		
 	}
 }

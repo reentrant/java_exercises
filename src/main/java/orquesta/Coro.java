@@ -44,14 +44,29 @@ public class Coro extends Cantante {
 
 	@Override
 	public boolean sonar() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resultado;
+		if (getCantando() == false) {
+			setCantando(true);
+			System.out.println("Canta un " + getTipo());
+			resultado = true;
+		}
+		else {
+			resultado = false;
+		}
+		return resultado;
 	}
 
 	@Override
 	public boolean noSonar() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resultado;
+		if (getCantando() == true) {
+			setCantando(false);
+			System.out.println("Deja de cantar un " + getTipo());
+			resultado = true;
+		} else {
+			resultado = false;
+		}
+		return resultado;
 	}
 
 	@Override
