@@ -14,14 +14,32 @@ public class Menu {
         System.out.println("0. FIN");
     }
 
-    public int leer() {
+    public int leerMenuPrincipal() {
     	int opcion;
         Scanner sc = new Scanner(System.in);
         do {
             System.out.print("Selecciona una opcion: ");
             opcion = sc.nextInt();
         } while (opcion < 0 || opcion > 6);
-        sc.close();
         return opcion;
     }
+    
+    public int escoger(String texto) {
+    	Scanner sc = new Scanner(System.in);
+    	int opcion = -1;
+		do {
+			System.out.print(texto);
+        	try {
+            	if (sc.hasNextLine()) {
+            		String string = sc.nextLine();
+            		opcion = Integer.parseInt(string);
+            	}
+    		}
+        	catch (Exception e) {
+                System.out.println(e.getMessage());
+            }	
+        } while (opcion < 1 || opcion > 2);
+		return opcion;
+    }
+    
 }

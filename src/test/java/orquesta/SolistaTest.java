@@ -8,10 +8,9 @@ public class SolistaTest {
 
 	@Test
 	public void test() {
-		Solista s = new Solista("Marwan", Genero.HOMBRE, TipoSolista.SOPRANO);
+		Solista s = new Solista();
 		System.out.println(s);
-		System.out.println(new Solista("Guty", Genero.HOMBRE, TipoSolista.TENOR));
-		
+		s.sonar();
+		s.noSonar();
 	}
-
 }

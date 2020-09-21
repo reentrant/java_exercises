@@ -14,7 +14,8 @@ public class CoroTest {
 
 	@Test
 	public void testGetTipo() {
-		fail("Not yet implemented"); // TODO
+		Coro c = new Coro();
+		System.out.println(c);
 	}
 
 	@Test

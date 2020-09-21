@@ -18,7 +18,7 @@ public class Persona {
 	}
 	
     public void leer() {
-    	System.out.print("Introduzca nombre? ");
+    	System.out.print("Introduzca nombre de la persona. ");
         Scanner sc = new Scanner(System.in);
         try {
     		if (sc.hasNextLine()) {
@@ -29,20 +29,13 @@ public class Persona {
             System.out.println(e.getMessage());
         }
         
-        int tipo = -1;
-        System.out.print("Introduzca genero, 1: Hombre, 2: Mujer? ");
-    	try {
-        	if (sc.hasNextLine()) {
-        		String string = sc.nextLine();
-        		tipo = Integer.parseInt(string);
-        	}
-		}
-    	catch (Exception e) {
-            System.out.println(e.getMessage());
-        }	
-        if (tipo > 0 && tipo < 3)
-        	this.genero = Genero.values()[tipo - 1];
-        //sc.close();
+        Menu menu = new Menu();
+        if (menu.escoger("Introduzca genero, 1: Hombre, 2: Mujer? ") == 1) {
+        	this.genero = Genero.HOMBRE;
+        } else {
+        	this.genero = Genero.MUJER;
+        }
+    	
     }
 
 	private void setNombre(String nombre) {
@@ -71,8 +64,35 @@ public class Persona {
         sb.append("]");
         return sb.toString();
     }
-
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		if (genero != other.genero)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		return true;
+	}
+
 	public static void main(String [] args) {
 		Persona p = new Persona();
 		System.out.println(p);

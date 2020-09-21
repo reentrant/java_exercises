@@ -1,6 +1,6 @@
 package orquesta;
 
-public class Cantante extends Persona implements Orquesta{
+public class Cantante extends Persona implements Orquesta, Comparable<Cantante>{
 	boolean cantando;
 
 	public Cantante() {
@@ -33,13 +33,39 @@ public class Cantante extends Persona implements Orquesta{
 
 	@Override
 	public boolean sonar() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean noSonar() {
-		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+    public int compareTo(Cantante t) {
+        return this.getNombre().compareTo(t.getNombre());
+    }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + (cantando ? 1231 : 1237);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cantante other = (Cantante) obj;
+		if (cantando != other.cantando)
+			return false;
+		return true;
+	}
+	
 }

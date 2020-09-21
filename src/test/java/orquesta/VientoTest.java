@@ -8,8 +8,13 @@ public class VientoTest {
 
 	@Test
 	public void test() {
-		Viento i = new Viento();
-		System.out.println(i);
+		Viento v1 = new Viento();
+		System.out.println(v1);
+		
+		Viento v2 = new Viento();
+		System.out.println(v2);
+		v2.sonar();
+		v2.noSonar();
 	}
 
 }

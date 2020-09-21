@@ -8,6 +8,15 @@ public class Solista extends Cantante {
 		super(nombre, genero);
 		this.tipo = tipo;
 	}
+	
+	public Solista() {
+		super();
+		if (getGenero().equals(Genero.HOMBRE)) {
+			this.tipo = TipoSolista.TENOR;
+		} else {
+			this.tipo = TipoSolista.SOPRANO;
+		}
+	}
 
 	public TipoSolista getTipo() {
 		return tipo;
@@ -20,8 +29,8 @@ public class Solista extends Cantante {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Solista [");
-		sb.append(super.toString());
+		sb.append("Solista: [nombre=");
+		sb.append(this.getNombre());
 		sb.append(", tipo=");
 		sb.append(getTipo() + "]");
 		return sb.toString();
@@ -29,13 +38,51 @@ public class Solista extends Cantante {
 
 	@Override
 	public boolean sonar() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resultado;
+		if (getCantando() == false) {
+			setCantando(true);
+			System.out.println("Canta un " + getTipo());
+			resultado = true;
+		}
+		else {
+			resultado = false;
+		}
+		return resultado;
 	}
 
 	@Override
 	public boolean noSonar() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resultado;
+		if (getCantando() == true) {
+			setCantando(false);
+			System.out.println("Deja de cantar un " + getTipo());
+			resultado = true;
+		} else {
+			resultado = false;
+		}
+		return resultado;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Solista other = (Solista) obj;
+		if (tipo != other.tipo)
+			return false;
+		return true;
+	}
+	
 }

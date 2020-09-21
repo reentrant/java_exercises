@@ -12,7 +12,7 @@ public class Cuerda extends Instrumento {
 	
 	public Cuerda(Persona musico, String nombreInstrumentoCuerda) {
 		super(musico);
-		this.nombreInstrumentoCuerda = nombreInstrumentoCuerda;
+		this.nombreInstrumentoCuerda = nombreInstrumentoCuerda.toLowerCase();
 	}
 	
 	public void leer() {
@@ -20,13 +20,12 @@ public class Cuerda extends Instrumento {
         Scanner sc = new Scanner(System.in);
         try {
     		if (sc.hasNextLine()) {
-    			this.nombreInstrumentoCuerda = sc.nextLine();
+    			this.nombreInstrumentoCuerda = sc.nextLine().toLowerCase();
     		}
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        //sc.close();
     }
 
 
@@ -36,14 +35,19 @@ public class Cuerda extends Instrumento {
 	}
 
 	@Override
+    public int compareTo(Instrumento t) {
+        return this.getNombreInstrumento().compareTo(t.getNombreInstrumento());
+    }	
+	
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Cuerda: [");
-		sb.append(super.toString());
+		sb.append("Cuerda: [musico=");
+		sb.append(this.getMusico().getNombre());
 		sb.append(", nombreInstrumentoCuerda=");
 		sb.append(getNombreInstrumento());
 		sb.append("]");
-		sb.append("]");
 		return sb.toString();
 	}
+
 }

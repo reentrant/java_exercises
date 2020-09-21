@@ -12,7 +12,7 @@ public class Viento extends Instrumento {
 	
 	public Viento(Persona musico, String nombreInstrumentoViento) {
 		super(musico);
-		this.nombreInstrumentoViento = nombreInstrumentoViento;
+		this.nombreInstrumentoViento = nombreInstrumentoViento.toLowerCase();
 	}
 	
 	
@@ -21,13 +21,12 @@ public class Viento extends Instrumento {
         Scanner sc = new Scanner(System.in);
         try {
     		if (sc.hasNextLine()) {
-    			this.nombreInstrumentoViento = sc.nextLine();
+    			this.nombreInstrumentoViento = sc.nextLine().toLowerCase();
     		}
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        //sc.close();
 	}
 
 	@Override
@@ -36,13 +35,17 @@ public class Viento extends Instrumento {
 	}
 
 	@Override
+    public int compareTo(Instrumento t) {
+        return this.getNombreInstrumento().compareTo(t.getNombreInstrumento());
+    }	
+	
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Viento: [");
-		sb.append(super.toString());
+		sb.append("Viento: [musico=");
+		sb.append(this.getMusico().getNombre());
 		sb.append(", nombreInstrumentoViento=");
 		sb.append(getNombreInstrumento());
-		sb.append("]");
 		sb.append("]");
 		return sb.toString();
 	}
