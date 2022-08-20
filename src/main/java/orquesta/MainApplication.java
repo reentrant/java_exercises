@@ -52,7 +52,7 @@ public class MainApplication {
 	private static void crearOrquesta() {
 		Menu menu = new Menu();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("¿Cuantos integrantes tiene la orquesta?");
+		System.out.println("Cuantos integrantes tiene la orquesta?");
 		int numeroDeIntegrantes = sc.nextInt();
 		orquesta = new Orquesta[numeroDeIntegrantes];
 		for (int i=0; i < numeroDeIntegrantes; i++) {
@@ -112,7 +112,7 @@ public class MainApplication {
         	}
         }
 		if (!sonando) {
-			System.out.println("La orquesta no está sonando en este momento");
+			System.out.println("La orquesta no esta sonando en este momento");
 		}
 		System.out.println();
 	}

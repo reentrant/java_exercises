@@ -128,7 +128,7 @@ public class ReproductorApp {
 
 
     private void nuevoCD() {
-        System.out.println("Numero de canciones N que contendra¡ el CD");
+        System.out.println("Numero de canciones N que contendra el CD");
         int n;
         Cancion[] arrayCanciones;
         do {

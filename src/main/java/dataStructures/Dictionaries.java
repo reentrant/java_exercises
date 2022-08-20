@@ -15,7 +15,7 @@ public class Dictionaries {
         people.put("Pedro", 29);
         System.out.println(people.elements().toString());
         for (Entry<String, Integer> entry : people.entrySet()) {
-        	  System.out.println(entry.getKey() + " tiene " + entry.getValue() + " años");
+        	  System.out.println(entry.getKey() + " tiene " + entry.getValue() + " years");
         	}
         
         
